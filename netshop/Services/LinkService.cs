@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleWebApiAspNetCore.Models;
-using SampleWebApiAspNetCore.Helpers;
+using netshop.Models;
+using netshop.Helpers;
 using System.Reflection;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 
-namespace SampleWebApiAspNetCore.Services
+namespace netshop.Services
 {
     public class LinkService<T> : ILinkService<T>
     {

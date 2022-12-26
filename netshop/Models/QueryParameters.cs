@@ -1,5 +1,5 @@
 
-namespace SampleWebApiAspNetCore.Models
+namespace netshop.Models
 {
     public class QueryParameters
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SampleWebApiAspNetCore.Models;
+using netshop.Models;
 
-namespace SampleWebApiAspNetCore.Services
+namespace netshop.Services
 {
     public interface ILinkService<T>
     {

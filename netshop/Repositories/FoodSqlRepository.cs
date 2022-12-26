@@ -1,12 +1,12 @@
-﻿using SampleWebApiAspNetCore.Entities;
-using SampleWebApiAspNetCore.Helpers;
-using SampleWebApiAspNetCore.Models;
+﻿using netshop.Entities;
+using netshop.Helpers;
+using netshop.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 
-namespace SampleWebApiAspNetCore.Repositories
+namespace netshop.Repositories
 {
     public class FoodSqlRepository : IFoodRepository
     {

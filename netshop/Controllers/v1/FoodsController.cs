@@ -1,17 +1,17 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
-using SampleWebApiAspNetCore.Dtos;
-using SampleWebApiAspNetCore.Entities;
-using SampleWebApiAspNetCore.Helpers;
-using SampleWebApiAspNetCore.Services;
-using SampleWebApiAspNetCore.Models;
-using SampleWebApiAspNetCore.Repositories;
+using netshop.Dtos;
+using netshop.Entities;
+using netshop.Helpers;
+using netshop.Services;
+using netshop.Models;
+using netshop.Repositories;
 using System.Text.Json;
 using System;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
-namespace SampleWebApiAspNetCore.Controllers.v1
+namespace netshop.Controllers.v1
 {
     [ApiController]
     [ApiVersion("1.0")]

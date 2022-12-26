@@ -1,7 +1,7 @@
-﻿using SampleWebApiAspNetCore.Entities;
-using SampleWebApiAspNetCore.Models;
+﻿using netshop.Entities;
+using netshop.Models;
 
-namespace SampleWebApiAspNetCore.Repositories
+namespace netshop.Repositories
 {
     public interface IFoodRepository
     {

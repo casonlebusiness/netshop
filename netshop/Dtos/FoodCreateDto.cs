@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SampleWebApiAspNetCore.Dtos
+namespace netshop.Dtos
 {
     public class FoodCreateDto
     {

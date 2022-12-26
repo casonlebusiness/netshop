@@ -1,4 +1,4 @@
-﻿namespace SampleWebApiAspNetCore.Dtos
+﻿namespace netshop.Dtos
 {
     public class FoodDto
     {

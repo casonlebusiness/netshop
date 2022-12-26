@@ -1,6 +1,6 @@
-using SampleWebApiAspNetCore.Models;
+using netshop.Models;
 
-namespace SampleWebApiAspNetCore.Helpers
+namespace netshop.Helpers
 {
     public static class QueryParametersExtensions
     {

@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json.Serialization;
-using SampleWebApiAspNetCore;
-using SampleWebApiAspNetCore.Helpers;
-using SampleWebApiAspNetCore.MappingProfiles;
-using SampleWebApiAspNetCore.Repositories;
-using SampleWebApiAspNetCore.Services;
+using netshop;
+using netshop.Helpers;
+using netshop.MappingProfiles;
+using netshop.Repositories;
+using netshop.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -1,4 +1,4 @@
-﻿namespace SampleWebApiAspNetCore.Entities
+﻿namespace netshop.Entities
 {
     public class FoodEntity
     {

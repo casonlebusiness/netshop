@@ -1,7 +1,7 @@
-﻿using SampleWebApiAspNetCore.Entities;
-using SampleWebApiAspNetCore.Repositories;
+﻿using netshop.Entities;
+using netshop.Repositories;
 
-namespace SampleWebApiAspNetCore.Services
+namespace netshop.Services
 {
     public class SeedDataService : ISeedDataService
     {

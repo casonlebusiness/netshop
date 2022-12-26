@@ -1,6 +1,6 @@
-﻿using SampleWebApiAspNetCore.Repositories;
+﻿using netshop.Repositories;
 
-namespace SampleWebApiAspNetCore.Services
+namespace netshop.Services
 {
     public interface ISeedDataService
     {

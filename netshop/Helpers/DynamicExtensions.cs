@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 
-namespace SampleWebApiAspNetCore.Models
+namespace netshop.Models
 {
     public static class DynamicExtensions
     {

@@ -1,7 +1,7 @@
-﻿using SampleWebApiAspNetCore.Repositories;
-using SampleWebApiAspNetCore.Services;
+﻿using netshop.Repositories;
+using netshop.Services;
 
-namespace SampleWebApiAspNetCore.Helpers
+namespace netshop.Helpers
 {
     public static class SeedDataExtension
     {
