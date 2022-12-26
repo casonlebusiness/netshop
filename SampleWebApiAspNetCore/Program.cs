@@ -38,7 +38,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 
 builder.Services.AddDbContext<FoodDbContext>(opt =>
-    opt.UseInMemoryDatabase("FoodDatabase"));
+    opt.UseSqlServer("Server=localhost,1433;Database=netshop;User Id=sa;Password=Root@12345"));
 
 builder.Services.AddAutoMapper(typeof(FoodMappings));
 
@@ -62,7 +62,7 @@ if (app.Environment.IsDevelopment())
             }
         });
 
-    app.SeedData();
+    // app.SeedData();
 } 
 else
 {
