@@ -10,7 +10,7 @@ using netshop.Repositories;
 
 namespace netshop.Migrations
 {
-    [DbContext(typeof(FoodDbContext))]
+    [DbContext(typeof(MainDBContext))]
     partial class FoodDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

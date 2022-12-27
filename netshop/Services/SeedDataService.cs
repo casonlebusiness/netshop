@@ -5,7 +5,7 @@ namespace netshop.Services
 {
     public class SeedDataService : ISeedDataService
     {
-        public void Initialize(FoodDbContext context)
+        public void Initialize(MainDBContext context)
         {
             context.FoodItems.Add(new FoodEntity() { Calories = 1000, Type = "Starter", Name = "Lasagne", Created = DateTime.Now });
             context.FoodItems.Add(new FoodEntity() { Calories = 1100, Type = "Main", Name = "Hamburger", Created = DateTime.Now });

@@ -4,6 +4,6 @@ namespace netshop.Services
 {
     public interface ISeedDataService
     {
-        void Initialize(FoodDbContext context);
+        void Initialize(MainDBContext context);
     }
 }

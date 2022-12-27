@@ -9,7 +9,7 @@ namespace netshop.Helpers
         {
             using (var scope = app.Services.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<FoodDbContext>();
+                var dbContext = scope.ServiceProvider.GetRequiredService<MainDBContext>();
                 var seedDataService = scope.ServiceProvider.GetRequiredService<ISeedDataService>();
 
                 seedDataService.Initialize(dbContext);

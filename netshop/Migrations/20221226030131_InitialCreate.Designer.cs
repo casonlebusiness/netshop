@@ -11,7 +11,7 @@ using netshop.Repositories;
 
 namespace netshop.Migrations
 {
-    [DbContext(typeof(FoodDbContext))]
+    [DbContext(typeof(MainDBContext))]
     [Migration("20221226030131_InitialCreate")]
     partial class InitialCreate
     {

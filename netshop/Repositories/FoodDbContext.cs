@@ -3,9 +3,9 @@ using netshop.Entities;
 
 namespace netshop.Repositories
 {
-    public class FoodDbContext : DbContext
+    public class MainDBContext : DbContext
     {
-        public FoodDbContext(DbContextOptions<FoodDbContext> options)
+        public MainDBContext(DbContextOptions<MainDBContext> options)
             : base(options)
         {
         }

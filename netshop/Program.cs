@@ -37,8 +37,8 @@ builder.Services.AddSingleton<IUrlHelperFactory, UrlHelperFactory>();
 builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 
-builder.Services.AddDbContext<FoodDbContext>(opt =>
-    opt.UseSqlServer("Server=localhost,1433;Database=netshop;User Id=sa;Password=Root@12345"));
+builder.Services.AddDbContext<MainDBContext>(opt =>
+    opt.UseSqlServer("Server=localhost,1433;Database=netshop;User Id=sa;Password=Root@12345; TrustServerCertificate=True;"));
 
 builder.Services.AddAutoMapper(typeof(FoodMappings));
 

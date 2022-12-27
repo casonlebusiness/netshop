@@ -10,9 +10,9 @@ namespace netshop.Repositories
 {
     public class FoodSqlRepository : IFoodRepository
     {
-        private readonly FoodDbContext _foodDbContext;
+        private readonly MainDBContext _foodDbContext;
 
-        public FoodSqlRepository(FoodDbContext foodDbContext)
+        public FoodSqlRepository(MainDBContext foodDbContext)
         {
             _foodDbContext = foodDbContext;
         }
