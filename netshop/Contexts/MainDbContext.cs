@@ -12,5 +12,6 @@ namespace netshop.DBContext
 
         public DbSet<FoodEntity> FoodItems { get; set; } = null!;
         public DbSet<ItemEntity> Items { get; set; } = null!;
+        public DbSet<CategoryEntity> Categories { get; set; } = null!;
     }
 }
