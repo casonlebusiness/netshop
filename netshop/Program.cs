@@ -11,6 +11,7 @@ using netshop.MappingProfiles;
 using netshop.Repositories;
 using netshop.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using netshop.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
 

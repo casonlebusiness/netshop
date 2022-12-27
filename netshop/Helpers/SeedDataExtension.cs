@@ -1,4 +1,4 @@
-﻿using netshop.Repositories;
+﻿using netshop.DBContext;
 using netshop.Services;
 
 namespace netshop.Helpers

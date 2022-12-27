@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using netshop.Entities;
 
-namespace netshop.Repositories
+namespace netshop.DBContext
 {
     public class MainDBContext : DbContext
     {
