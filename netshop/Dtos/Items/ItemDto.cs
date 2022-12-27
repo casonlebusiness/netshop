@@ -1,3 +1,5 @@
+using netshop.Entities;
+
 namespace netshop.Dtos
 {
   public class ItemDto
@@ -5,5 +7,6 @@ namespace netshop.Dtos
     public int Id;
     public string? Name { get; set; }
     public DateTime Created { get; set; }
+    public CategoryEntity? Category { get; set; }
   }
 }
