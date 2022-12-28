@@ -9,6 +9,9 @@ namespace netshop.MappingProfiles
     public ItemMappings()
     {
       CreateMap<ItemEntity, ItemDto>().ReverseMap();
+      CreateMap<ItemCreateDto, ItemEntity>()
+                .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
+                .ForMember(d => d.CategoryId, o => o.MapFrom(s => s.CategoryId));
     }
   }
 }

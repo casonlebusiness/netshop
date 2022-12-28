@@ -12,6 +12,7 @@ using netshop.Repositories;
 using netshop.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using netshop.DBContext;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -31,6 +32,7 @@ builder.Services.AddCustomCors("AllowAllOrigins");
 builder.Services.AddSingleton<ISeedDataService, SeedDataService>();
 builder.Services.AddScoped<IFoodRepository, FoodSqlRepository>();
 builder.Services.AddScoped<IItemRepository, ItemRepository>();
+builder.Services.AddScoped<ICategoryRepo, CategoryRepo>();
 builder.Services.AddScoped(typeof(ILinkService<>), typeof(LinkService<>));
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
 
@@ -43,7 +45,7 @@ builder.Services.AddVersioning();
 builder.Services.AddDbContext<MainDBContext>(opt =>
     opt.UseSqlServer(configuration.GetConnectionString("MainDBConnection")));
 
-builder.Services.AddAutoMapper(typeof(FoodMappings), typeof(ItemMappings));
+builder.Services.AddAutoMapper(typeof(FoodMappings), typeof(ItemMappings), typeof(CategoryMapping));
 
 var app = builder.Build();
 

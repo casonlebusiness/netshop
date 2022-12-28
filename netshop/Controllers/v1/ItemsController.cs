@@ -75,7 +75,7 @@ namespace netshop.Controllers.v1
             return Ok(_linkService.ExpandSingleFoodItem(itemDto, itemDto.Id, version));
         }
 
-        [HttpPost(Name = nameof(AddItem))]
+        [HttpPost(), Route("/AddItem")]
         public ActionResult<ItemDto> AddItem(ApiVersion version, [FromBody] ItemCreateDto itemCreateDto)
         {
             if (itemCreateDto == null)
@@ -93,11 +93,11 @@ namespace netshop.Controllers.v1
             }
 
             ItemEntity newItem = _itemRepo.GetSingle(toAdd.Id);
-            ItemDto foodDto = _mapper.Map<ItemDto>(newItem);
+            ItemDto itemDto = _mapper.Map<ItemDto>(newItem);
 
             return CreatedAtRoute(nameof(GetSingleItem),
                 new { version = version.ToString(), id = newItem.Id },
-                _linkService.ExpandSingleFoodItem(foodDto, foodDto.Id, version));
+                _linkService.ExpandSingleFoodItem(itemDto, itemDto.Id, version));
         }
     }
 }
