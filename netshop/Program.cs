@@ -14,6 +14,7 @@ using Swashbuckle.AspNetCore.SwaggerGen;
 using netshop.DBContext;
 
 var builder = WebApplication.CreateBuilder(args);
+ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 
@@ -40,7 +41,7 @@ builder.Services.AddRouting(options => options.LowercaseUrls = true);
 builder.Services.AddVersioning();
 
 builder.Services.AddDbContext<MainDBContext>(opt =>
-    opt.UseSqlServer("Server=localhost,1433;Database=netshop;User Id=sa;Password=Root@12345; TrustServerCertificate=True;"));
+    opt.UseSqlServer(configuration.GetConnectionString("MainDBConnection")));
 
 builder.Services.AddAutoMapper(typeof(FoodMappings), typeof(ItemMappings));
 
