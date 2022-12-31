@@ -23,6 +23,15 @@ namespace netshop.Repositories
             _mainDBContext.Categories.Add(category);
         }
 
+        public CategoryEntity GetSingle(int id) {
+          
+            CategoryEntity foundRecord = _mainDBContext.Categories.FirstOrDefault(category => category.Id == id);
+            if (foundRecord == null) {
+                throw new Exception();
+            }
+            return foundRecord;
+        } 
+
         public bool Save()
         {
             return (_mainDBContext.SaveChanges() >= 0);

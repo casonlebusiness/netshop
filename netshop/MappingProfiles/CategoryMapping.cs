@@ -8,6 +8,7 @@ namespace netshop.MappingProfiles
   {
     public CategoryMapping()
     {
+      CreateMap<CategoryDisplayDto, CategoryEntity>().ReverseMap();
       CreateMap<CategoryCreateDTO, CategoryEntity>()
                 .ForMember(d => d.Name, o => o.MapFrom(s => s.Name))
                 .ForMember(d => d.Created, o => o.MapFrom(s => DateTime.Now.Date));

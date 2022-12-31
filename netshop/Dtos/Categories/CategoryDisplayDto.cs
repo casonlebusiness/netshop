@@ -1,6 +1,6 @@
 namespace netshop.Dtos
 {
-  public class CategoryDTO
+  public class CategoryDisplayDto
   {
     public int Id;
     public string? Name;

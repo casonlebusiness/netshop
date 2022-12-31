@@ -32,6 +32,13 @@ namespace netshop.Controllers.v1
             _linkService = linkService;
         }
 
+        [HttpGet]
+        [Route(("{id:int}"), Name = nameof(GetSingle))]
+        public ActionResult GetSingle(ApiVersion version, int id) {
+            CategoryDisplayDto categoryDisplayDto = _mapper.Map<CategoryDisplayDto>(_categoryRepo.GetSingle(id));
+            return Ok(categoryDisplayDto);
+        }
+
         [HttpPost(Name = nameof(AddItem))]
         public ActionResult AddItem(ApiVersion version, [FromBody] CategoryCreateDTO categoryCreateDto)
         {

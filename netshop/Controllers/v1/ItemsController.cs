@@ -35,7 +35,7 @@ namespace netshop.Controllers.v1
         [HttpGet(Name = nameof(GetAllItems))]
         public ActionResult GetAllItems(ApiVersion version, [FromQuery] QueryParameters queryParameters)
         {
-            List<ItemEntity> foodItems = _itemRepo.GetAll(queryParameters).ToList();
+            List<ItemEntity> items = _itemRepo.GetAll(queryParameters).ToList();
 
             var allItemCount = _itemRepo.Count();
 
@@ -49,13 +49,9 @@ namespace netshop.Controllers.v1
 
             Response.Headers.Add("X-Pagination", JsonSerializer.Serialize(paginationMetadata));
 
-            var links = _linkService.CreateLinksForCollection(queryParameters, allItemCount, version);
-            var toReturn = foodItems.Select(x => _linkService.ExpandSingleFoodItem(x, x.Id, version));
-
             return Ok(new
             {
-                value = toReturn,
-                links = links
+                value = items
             });
         }
 

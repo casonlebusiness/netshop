@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic.Core;
 using netshop.DBContext;
+using Microsoft.EntityFrameworkCore;
 
 namespace netshop.Repositories
 {
@@ -20,7 +21,7 @@ namespace netshop.Repositories
 
         public ItemEntity GetSingle(int id)
         {
-            return _mainDBContext.Items.FirstOrDefault(x => x.Id == id);
+            return _mainDBContext.Items.Include(record => record.Category).FirstOrDefault(x => x.Id == id);
         }
 
         public void Add(ItemEntity item)
@@ -42,7 +43,7 @@ namespace netshop.Repositories
 
         public IQueryable<ItemEntity> GetAll(QueryParameters queryParameters)
         {
-            IQueryable<ItemEntity> _allItems = _mainDBContext.Items.OrderBy(queryParameters.OrderBy,
+            IQueryable<ItemEntity> _allItems = _mainDBContext.Items.Include(item => item.Category).OrderBy(queryParameters.OrderBy,
               queryParameters.IsDescending());
 
             return _allItems

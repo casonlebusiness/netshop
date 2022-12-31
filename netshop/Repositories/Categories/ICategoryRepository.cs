@@ -6,6 +6,7 @@ namespace netshop.Repositories
     public interface ICategoryRepo
     {
         void Add(CategoryEntity item);
+        CategoryEntity GetSingle(int id);
         bool Save();
     }
 }
