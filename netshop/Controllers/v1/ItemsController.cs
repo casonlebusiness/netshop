@@ -35,7 +35,8 @@ namespace netshop.Controllers.v1
         [HttpGet(Name = nameof(GetAllItems))]
         public ActionResult GetAllItems(ApiVersion version, [FromQuery] QueryParameters queryParameters)
         {
-            List<ItemEntity> items = _itemRepo.GetAll(queryParameters).ToList();
+            List<ItemEntity> entityItems = _itemRepo.GetAll(queryParameters).ToList();
+            List<ItemDto> returnedItems = _mapper.Map<List<ItemDto>>(entityItems);
 
             var allItemCount = _itemRepo.Count();
 
@@ -51,7 +52,7 @@ namespace netshop.Controllers.v1
 
             return Ok(new
             {
-                value = items
+                value = returnedItems
             });
         }
 

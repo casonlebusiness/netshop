@@ -7,5 +7,6 @@ namespace netshop.Entities
     public DateTime Created { get; set; }
     public int CategoryId { get; set; }
     public CategoryEntity? Category { get; set; }
+    public string? ImagePath { get; set; }
   }
 }
