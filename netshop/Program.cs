@@ -51,6 +51,7 @@ var app = builder.Build();
 
 var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 var loggerFactory = app.Services.GetRequiredService<ILoggerFactory>();
+BuildAppSettingsProvider();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -82,3 +83,9 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+void BuildAppSettingsProvider()
+{
+    AppSettingsProvider.DBConnectionString = configuration.GetConnectionString("MainDBConnection");
+    AppSettingsProvider.StorageAccountConnectionString = configuration.GetConnectionString("StorageAccountConnectionString");
+}
