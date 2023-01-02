@@ -6,7 +6,7 @@ namespace netshop.Helpers
     {
         public static string GenerateBlobUrl(string blobPath)
         {
-            return $"https://netshopdev.blob.core.windows.net/{blobPath}";
+            return blobPath != null ? $"https://netshopdev.blob.core.windows.net/{blobPath}" : ""; 
         }
     }
 }
