@@ -12,7 +12,12 @@ using netshop.Repositories;
 using netshop.Services;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using netshop.DBContext;
-using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+using samples.Models;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 var builder = WebApplication.CreateBuilder(args);
 ConfigurationManager configuration = builder.Configuration;
@@ -44,6 +49,41 @@ builder.Services.AddVersioning();
 
 builder.Services.AddDbContext<MainDBContext>(opt =>
     opt.UseSqlServer(configuration.GetConnectionString("MainDBConnection")));
+
+// Identity Framework
+// For Identity
+builder.Services.AddDefaultIdentity<UserEntity>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<MainDBContext>();
+
+builder.Services.AddIdentityServer()
+    .AddApiAuthorization<UserEntity, MainDBContext>();
+
+builder.Services.AddAuthentication()
+.AddIdentityServerJwt();
+
+// Adding Authentication
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+
+// Adding Jwt Bearer
+.AddJwtBearer(options =>
+{
+    options.SaveToken = true;
+    options.RequireHttpsMetadata = false;
+    options.TokenValidationParameters = new TokenValidationParameters()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidAudience = configuration["JWT:ValidAudience"],
+        ValidIssuer = configuration["JWT:ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
+    };
+});
+
 
 builder.Services.AddAutoMapper(typeof(FoodMappings), typeof(ItemMappings), typeof(CategoryMapping));
 
@@ -78,8 +118,9 @@ else
 app.UseCors("AllowAllOrigins");
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseIdentityServer();
 app.MapControllers();
 
 app.Run();
